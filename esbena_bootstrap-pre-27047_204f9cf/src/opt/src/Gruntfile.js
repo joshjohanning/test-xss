@@ -21,6 +21,7 @@ module.exports = function (grunt) {
   var BsLessdocParser = require('./grunt/bs-lessdoc-parser.js');
   var getLessVarsData = function () {
     var filePath = path.join(__dirname, 'less/variables.less');
+    var fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     var parser = new BsLessdocParser(fileContent);
     return { sections: parser.parseFile() };
   };
